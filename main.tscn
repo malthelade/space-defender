@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwtlk4ccp1cbo"]
+
+[ext_resource type="Texture2D" uid="uid://520rgfsyxy3t" path="res://star-background.jpg" id="1_ti2b6"]
+[ext_resource type="PackedScene" uid="uid://bm0ois4d6iqns" path="res://planet.tscn" id="2_bmkl5"]
+[ext_resource type="PackedScene" uid="uid://dckrg5dldk001" path="res://spaceship.tscn" id="3_eq10i"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_ti2b6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Planet" parent="." instance=ExtResource("2_bmkl5")]
+
+[node name="Spaceship" parent="." instance=ExtResource("3_eq10i")]

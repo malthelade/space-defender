@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm0ois4d6iqns"]
+
+[ext_resource type="Texture2D" uid="uid://csfv387tdud7m" path="res://earth.png" id="1_orlov"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6erk"]
+radius = 212.236
+
+[node name="Planet" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, -17)
+texture = ExtResource("1_orlov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l6erk")
