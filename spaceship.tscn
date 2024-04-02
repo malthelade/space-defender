@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dckrg5dldk001"]
 
-[ext_resource type="Texture2D" uid="uid://gwrx4bqag7n7" path="res://triangle.png" id="1_xvhty"]
 [ext_resource type="Script" path="res://spaceship.gd" id="1_y062m"]
+[ext_resource type="Texture2D" uid="uid://cbjah3r51243b" path="res://spaceship.png" id="2_8n3iq"]
 
 [node name="Spaceship" type="CharacterBody2D"]
 motion_mode = 1
@@ -9,9 +9,9 @@ script = ExtResource("1_y062m")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 1.5708
-polygon = PackedVector2Array(-47, 34, 46, 35, 45, 15, 0, -28, -46, 16)
+polygon = PackedVector2Array(-35.9999, 18.0001, 38.0001, 15.9999, 37.9999, -28.0001, 0, -28, -39.0001, -25.9999)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_xvhty")
+texture = ExtResource("2_8n3iq")

@@ -3,8 +3,15 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 var mouse_position = null
+var laser = preload("res://laser.tscn")
+@export var laser_speed = 1000
 
-
+func _process(delta):
+	if Input.is_action_just_pressed("fire"):
+		var laser_instance = laser.instantiate()
+		laser_instance.position = get_global_position()
+		laser_instance.rotation_degrees = rotation_degrees
+		get_tree().get_root().add_child(laser_instance)
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO
