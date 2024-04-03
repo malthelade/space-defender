@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwtlk4ccp1cbo"]
+[gd_scene load_steps=7 format=3 uid="uid://dwtlk4ccp1cbo"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_aboox"]
 [ext_resource type="Texture2D" uid="uid://520rgfsyxy3t" path="res://star-background.jpg" id="1_ti2b6"]
 [ext_resource type="PackedScene" uid="uid://bm0ois4d6iqns" path="res://planet.tscn" id="2_bmkl5"]
 [ext_resource type="PackedScene" uid="uid://dckrg5dldk001" path="res://spaceship.tscn" id="3_eq10i"]
+[ext_resource type="PackedScene" uid="uid://bowy6paq1jypt" path="res://enemyspaceship.tscn" id="5_fy8rf"]
+
+[sub_resource type="Curve2D" id="Curve2D_fpi31"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -624, -366, 0, 0, 0, 0, 606, -362, 0, 0, 0, 0, 608, 362, 0, 0, 0, 0, -626, 366, 0, 0, 0, 0, -624, -366)
+}
+point_count = 5
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_aboox")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -20,3 +29,21 @@ texture = ExtResource("1_ti2b6")
 [node name="Planet" parent="." instance=ExtResource("2_bmkl5")]
 
 [node name="Spaceship" parent="." instance=ExtResource("3_eq10i")]
+
+[node name="Enemyspaceship" parent="." instance=ExtResource("5_fy8rf")]
+position = Vector2(-401, 253)
+
+[node name="Enemyspaceship2" parent="." instance=ExtResource("5_fy8rf")]
+position = Vector2(344, 241)
+
+[node name="Spawnpath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_fpi31")
+
+[node name="spawnlocation" type="PathFollow2D" parent="Spawnpath"]
+position = Vector2(-624, -366)
+rotation = 0.00325202
+
+[node name="EnemyTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
