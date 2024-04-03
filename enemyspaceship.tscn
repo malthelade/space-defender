@@ -7,8 +7,10 @@
 script = ExtResource("1_hdxce")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = -1.5708
 polygon = PackedVector2Array(-39, -28, -68, -4, -2, 29, 68, -3, 39, -26)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
 scale = Vector2(0.28, 0.28)
 texture = ExtResource("1_o1eop")

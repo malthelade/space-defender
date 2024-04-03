@@ -9,7 +9,7 @@ const SPEED = 300.0
 func _physics_process(delta):
 	
 	var direction = (planet_pos - position).normalized()
-	
+	look_at(planet_pos)
 	
 	velocity = direction * SPEED
 	move_and_slide()
