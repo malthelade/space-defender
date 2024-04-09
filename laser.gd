@@ -2,6 +2,7 @@ extends Area2D
 
 var travelled_distance = 0
 @export var speed = 1000
+@export var damage = 1
 const RANGE = 1200
 
 
@@ -24,7 +25,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
-		body.health -= 1
+		body.health -= damage
 	queue_free()
 		
 	

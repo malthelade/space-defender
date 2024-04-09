@@ -12,6 +12,7 @@ func _process(delta):
 		var laser_instance = laser.instantiate()
 		laser_instance.position = get_global_position()
 		laser_instance.rotation_degrees = rotation_degrees
+		laser_instance.damage = laser_damage
 		get_tree().get_root().add_child(laser_instance)
 
 func _physics_process(delta):
