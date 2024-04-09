@@ -17,8 +17,6 @@ func _process(delta):
 
 
 func _on_enemy_timer_timeout():
-#	$Spawnpath/spawnlocation.set_v_offset(randi())
-#	$Spawnpath/spawnlocation.set_h_offset(randi())
 	spawnlocation.progress_ratio = randf()
 	var enemy_instance = enemy.instantiate()
 	enemy_instance.planet_pos = $Planet.position
