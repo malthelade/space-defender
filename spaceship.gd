@@ -5,6 +5,7 @@ const SPEED = 300.0
 var mouse_position = null
 var laser = preload("res://laser.tscn")
 @export var laser_speed = 1000
+@export var laser_damage = 1
 
 func _process(delta):
 	if Input.is_action_just_pressed("fire"):

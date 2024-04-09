@@ -3,14 +3,15 @@
 [ext_resource type="Script" path="res://enemyspaceship.gd" id="1_hdxce"]
 [ext_resource type="Texture2D" uid="uid://bl2jw0rw6hpcc" path="res://232-2329096_alien-mothership-mothership-pixel-art.png" id="1_o1eop"]
 
-[node name="Enemyspaceship" type="CharacterBody2D" groups=["spaceship"]]
+[node name="Enemyspaceship" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 3
 script = ExtResource("1_hdxce")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-rotation = -1.5708
-polygon = PackedVector2Array(-39, -28, -68, -4, -2, 29, 68, -3, 39, -26)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
 scale = Vector2(0.28, 0.28)
 texture = ExtResource("1_o1eop")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = -1.5708
+polygon = PackedVector2Array(-39, -28, -68, -4, -2, 29, 68, -3, 39, -26)
