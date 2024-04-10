@@ -4,12 +4,13 @@ var travelled_distance = 0
 @export var speed = 1000
 @export var damage = 1
 const RANGE = 1200
+@onready var upgrades = get_node("/root/Upgrades")
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Sprite2D.texture = upgrades.laser_skin
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

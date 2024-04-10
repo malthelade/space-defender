@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var health = 2
 const SPEED = 300.0
 @export var planet_pos = Vector2.ZERO
-
+signal enemy_death
 
 
 func _physics_process(delta):
@@ -16,6 +16,7 @@ func _physics_process(delta):
 	
 	
 	if health <= 0:
+		emit_signal("enemy_death")
 		queue_free()
 	
 
