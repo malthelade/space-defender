@@ -5,7 +5,7 @@ var enemy = preload("res://enemyspaceship.tscn")
 @onready var enemytimer = $EnemyTimer
 var kill_counter = 0
 var kill_goal = 60
-
+var upgrade_allowed = false
 
 enum {
 	ROUND_1,
@@ -41,9 +41,12 @@ func _on_enemy_timer_timeout():
 
 
 func round_1_state():
-	kill_goal = 60
+	kill_goal = 10
 	if kill_counter == kill_goal:
 		enemytimer.stop()
+	if kill_counter >= kill_goal and get_tree().get_nodes_in_group("enemies").is_empty():
+		upgrade_allowed = true
+	
 
 func round_2_state():
 	kill_goal = 80
@@ -57,3 +60,8 @@ func round_3_state():
 	
 func _on_enemy_death():
 	kill_counter += 1
+
+
+func _on_area_2d_body_entered(body):
+	if upgrade_allowed:
+		print("upgrading")
