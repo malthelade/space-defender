@@ -1,12 +1,16 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+
 var mouse_position = null
 var laser = preload("res://laser.tscn")
 @export var laser_speed = 1000
 @export var laser_damage = 1
 @onready var upgrades = get_node("/root/Upgrades")
+var SPEED = 300
+
+func _ready():
+	upgrades.update_ship_speed.connect(_update_ship_speed)
 
 func _process(delta):
 	if Input.is_action_just_pressed("fire"):
@@ -28,3 +32,6 @@ func _physics_process(delta):
 			velocity = (direction * SPEED)
 			
 	move_and_slide()
+
+func _update_ship_speed():
+	SPEED = upgrades.ship_speed

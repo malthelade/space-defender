@@ -3,7 +3,7 @@ extends Area2D
 var travelled_distance = 0
 @export var speed = 1000
 @export var damage = 1
-const RANGE = 1200
+const RANGE = 1000
 @onready var upgrades = get_node("/root/Upgrades")
 
 

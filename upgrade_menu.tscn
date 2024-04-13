@@ -1,0 +1,143 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjd4dn3r4bjl"]
+
+[ext_resource type="Script" path="res://upgrade_menu.gd" id="1_kxf5u"]
+
+[node name="UpgradeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kxf5u")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -149.0
+offset_right = 252.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CloseButton" type="Button" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 0
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="ShipUpgrade1" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "UPGRADE SHIP"
+
+[node name="ShipText1" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/ShipUpgrade1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.5
+offset_right = 79.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Price: 10 credits
+Acquire a faster ship"
+
+[node name="ShipUpgrade2" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "UPGRADE SHIP"
+
+[node name="ShipText2" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/ShipUpgrade2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.5
+offset_top = 2.0
+offset_right = 104.5
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Price: 20 credits
+Acquire the coolest and 
+fastest ship on Super Earth"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="LaserUpgrade1" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "UPGRADE LASER"
+
+[node name="LaserText1" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/LaserUpgrade1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.5
+offset_right = 84.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Price: 10 credits
+Make your laser deal
+more damage"
+
+[node name="LaserUpgrade2" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "UPGRADE LASER"
+
+[node name="LaserText2" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/LaserUpgrade2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -1.0
+offset_right = 95.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Price: 20 credits
+Make your laser do even 
+more damage"
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/ShipUpgrade1" to="." method="_on_ship_upgrade_1_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/ShipUpgrade2" to="." method="_on_ship_upgrade_2_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer2/LaserUpgrade1" to="." method="_on_laser_upgrade_1_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer2/LaserUpgrade2" to="." method="_on_laser_upgrade_2_pressed"]

@@ -3,9 +3,13 @@ extends Node2D
 var enemy = preload("res://enemyspaceship.tscn")
 @onready var spawnlocation = $Spawnpath/spawnlocation
 @onready var enemytimer = $EnemyTimer
+@onready var upgrademenu = $UpgradeMenu
+@onready var upgrades = get_node("/root/Upgrades")
+@onready var creditslabel = $CreditsLabel
 var kill_counter = 0
 var kill_goal = 60
 var upgrade_allowed = false
+var per_round_credit_amount = 10
 
 enum {
 	ROUND_1,
@@ -17,7 +21,7 @@ var state = ROUND_1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	upgrademenu.menu_closed.connect(_on_upgrade_menu_closed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,6 +33,11 @@ func _process(delta):
 			round_2_state()
 		ROUND_3:
 			round_3_state()
+	
+	if upgrade_allowed:
+		upgrademenu.visible = true
+	
+	creditslabel.text = "Credits: "+str(upgrades.credits)
 
 
 func _on_enemy_timer_timeout():
@@ -41,27 +50,48 @@ func _on_enemy_timer_timeout():
 
 
 func round_1_state():
-	kill_goal = 10
+	kill_goal = 1
 	if kill_counter == kill_goal:
 		enemytimer.stop()
 	if kill_counter >= kill_goal and get_tree().get_nodes_in_group("enemies").is_empty():
 		upgrade_allowed = true
-	
+		
 
 func round_2_state():
 	kill_goal = 80
 	if kill_counter == kill_goal:
 		enemytimer.stop()
+	if kill_counter >= kill_goal and get_tree().get_nodes_in_group("enemies").is_empty():
+		upgrade_allowed = true
 	
 func round_3_state():
 	kill_goal = 100
 	if kill_counter == kill_goal:
 		enemytimer.stop()
+	if kill_counter >= kill_goal and get_tree().get_nodes_in_group("enemies").is_empty():
+		upgrade_allowed = true
 	
 func _on_enemy_death():
 	kill_counter += 1
+	upgrades.credits += 1
 
 
-func _on_area_2d_body_entered(body):
-	if upgrade_allowed:
-		print("upgrading")
+
+
+	
+func end_round():
+	kill_counter = 0
+	if state == ROUND_1:
+		per_round_credit_amount += 10
+		state = ROUND_2
+		enemytimer.start(0.8)
+	elif state == ROUND_2:
+		per_round_credit_amount += 10
+		state = ROUND_3
+		enemytimer.start(0.6)
+	elif state == ROUND_3:
+		pass
+
+func _on_upgrade_menu_closed():
+	upgrade_allowed = false
+	end_round()

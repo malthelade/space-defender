@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwtlk4ccp1cbo"]
+[gd_scene load_steps=8 format=3 uid="uid://dwtlk4ccp1cbo"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_aboox"]
 [ext_resource type="Texture2D" uid="uid://520rgfsyxy3t" path="res://star-background.jpg" id="1_ti2b6"]
 [ext_resource type="PackedScene" uid="uid://bm0ois4d6iqns" path="res://planet.tscn" id="2_bmkl5"]
 [ext_resource type="PackedScene" uid="uid://dckrg5dldk001" path="res://spaceship.tscn" id="3_eq10i"]
+[ext_resource type="PackedScene" uid="uid://cjd4dn3r4bjl" path="res://upgrade_menu.tscn" id="5_kgpqi"]
 
 [sub_resource type="Curve2D" id="Curve2D_fpi31"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1109, -699, 0, 0, 0, 0, 1155, -683, 0, 0, 0, 0, 1152, 697, 0, 0, 0, 0, -1127, 700, 0, 0, 0, 0, -1108, -697)
 }
 point_count = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_rg3jy"]
+font_size = 29
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_aboox")
@@ -40,7 +44,17 @@ rotation = 0.00706702
 [node name="EnemyTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="body_entered" from="Planet/Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="UpgradeMenu" parent="." instance=ExtResource("5_kgpqi")]
+visible = false
+
+[node name="CreditsLabel" type="Label" parent="."]
+offset_left = -908.0
+offset_top = -489.0
+offset_right = -706.0
+offset_bottom = -430.0
+text = "Credits:"
+label_settings = SubResource("LabelSettings_rg3jy")
+
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 
 [editable path="Planet"]
