@@ -8,5 +8,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if planet_health <= 0:
-		get_tree().change_scene_to_file("res://loss_screen.tscn")
+	pass
+
+
+func no_health():
+	get_tree().change_scene_to_file("res://loss_screen.tscn")
+
+
+func reset_gamestate():
+	planet_health = 100
+	enemy_counter = 0

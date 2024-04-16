@@ -18,7 +18,7 @@ signal menu_closed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	shiptext1.text = "Price: "+str(level1upgradeprice)+" credits
-Acquire a faster ship"
+Acquire a faster engine"
 	shiptext2.text = "Price: "+str(level2upgradeprice)+" credits
 Acquire the coolest and 
 fastest ship on Super Earth!"

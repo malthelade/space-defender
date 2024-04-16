@@ -7,10 +7,11 @@ var laser = preload("res://laser.tscn")
 @export var laser_speed = 1000
 @export var laser_damage = 1
 @onready var upgrades = get_node("/root/Upgrades")
+@onready var sprite = $Sprite2D
 var SPEED = 300
 
 func _ready():
-	upgrades.update_ship_speed.connect(_update_ship_speed)
+	upgrades.update_ship.connect(_update_ship)
 
 func _process(delta):
 	if Input.is_action_just_pressed("fire"):
@@ -33,5 +34,6 @@ func _physics_process(delta):
 			
 	move_and_slide()
 
-func _update_ship_speed():
+func _update_ship():
 	SPEED = upgrades.ship_speed
+	sprite.texture = upgrades.ship_skin

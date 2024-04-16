@@ -7,6 +7,7 @@ var enemy = preload("res://enemyspaceship.tscn")
 @onready var upgrades = get_node("/root/Upgrades")
 @onready var creditslabel = $CreditsLabel
 @onready var gamestate = get_node("/root/Gamestate")
+@onready var populationlabel = $PopulationLabel
 var kill_counter = 0
 var kill_goal = 60
 var upgrade_allowed = false
@@ -39,6 +40,7 @@ func _process(delta):
 		upgrademenu.visible = true
 	
 	creditslabel.text = "Credits: "+str(upgrades.credits)
+	populationlabel.text = "Population: "+str(gamestate.planet_health)+"%"
 
 
 func _on_enemy_timer_timeout():
@@ -51,7 +53,7 @@ func _on_enemy_timer_timeout():
 
 
 func round_1_state():
-	kill_goal = 1
+	kill_goal = 60
 	if kill_counter == kill_goal:
 		enemytimer.stop()
 	if kill_counter >= kill_goal and get_tree().get_nodes_in_group("enemies").is_empty():
@@ -75,7 +77,6 @@ func round_3_state():
 func _on_enemy_death():
 	kill_counter += 1
 	upgrades.credits += 1
-	gamestate.enemy_counter -= 1
 
 
 
