@@ -18,12 +18,5 @@ func _physics_process(delta):
 	if health <= 0:
 		emit_signal("enemy_death")
 		queue_free()
-	
-
-
-
-
-
-
 
 
