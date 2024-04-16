@@ -9,6 +9,8 @@ var laser = preload("res://laser.tscn")
 @onready var upgrades = get_node("/root/Upgrades")
 @onready var sprite = $Sprite2D
 var SPEED = 300
+var drag_factor := 0.1
+
 
 func _ready():
 	upgrades.update_ship.connect(_update_ship)
@@ -22,7 +24,6 @@ func _process(delta):
 		get_tree().get_root().add_child(laser_instance)
 
 func _physics_process(delta):
-	velocity = Vector2.ZERO
 	mouse_position = get_global_mouse_position()
 	
 	look_at(get_global_mouse_position())
@@ -30,9 +31,13 @@ func _physics_process(delta):
 	if position.distance_to(mouse_position) > 10:
 		if Input.is_action_pressed("forward"):
 			var direction = (mouse_position - position).normalized()
-			velocity = (direction * SPEED)
+			var desired_velocity = SPEED * direction
+			var steering_vector = desired_velocity - velocity
+			velocity += steering_vector * drag_factor
+			position += velocity * delta
+			rotation = velocity.angle()
 			
-	move_and_slide()
+
 
 func _update_ship():
 	SPEED = upgrades.ship_speed
