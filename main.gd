@@ -6,6 +6,7 @@ var enemy = preload("res://enemyspaceship.tscn")
 @onready var upgrademenu = $UpgradeMenu
 @onready var upgrades = get_node("/root/Upgrades")
 @onready var creditslabel = $CreditsLabel
+@onready var gamestate = get_node("/root/Gamestate")
 var kill_counter = 0
 var kill_goal = 60
 var upgrade_allowed = false
@@ -74,6 +75,7 @@ func round_3_state():
 func _on_enemy_death():
 	kill_counter += 1
 	upgrades.credits += 1
+	gamestate.enemy_counter -= 1
 
 
 
