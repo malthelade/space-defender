@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://520rgfsyxy3t" path="res://star-background.jpg" id="1_ti2b6"]
 [ext_resource type="PackedScene" uid="uid://bm0ois4d6iqns" path="res://planet.tscn" id="2_bmkl5"]
 [ext_resource type="PackedScene" uid="uid://dckrg5dldk001" path="res://spaceship.tscn" id="3_eq10i"]
-[ext_resource type="PackedScene" path="res://upgrade_menu.tscn" id="5_kgpqi"]
+[ext_resource type="PackedScene" uid="uid://cjd4dn3r4bjl" path="res://upgrade_menu.tscn" id="5_kgpqi"]
 
 [sub_resource type="Curve2D" id="Curve2D_fpi31"]
 _data = {

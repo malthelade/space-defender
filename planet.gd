@@ -1,5 +1,4 @@
 extends Node2D
-var health = 100
 @onready var damage_timer = $Damagetimer
 @onready var gamestate = get_node("/root/Gamestate")
 
@@ -23,7 +22,7 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_timer_timeout():
-	health -= gamestate.enemy_counter * 5
+	gamestate.planet_health -= gamestate.enemy_counter * 5
 	
 
 

@@ -8,4 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if planet_health <= 0:
+		get_tree().change_scene_to_file("res://loss_screen.tscn")
