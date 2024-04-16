@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bl2jw0rw6hpcc" path="res://232-2329096_alien-mothership-mothership-pixel-art.png" id="1_o1eop"]
 
 [node name="Enemyspaceship" type="CharacterBody2D" groups=["enemies"]]
-collision_layer = 3
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_hdxce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
