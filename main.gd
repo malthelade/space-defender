@@ -53,7 +53,7 @@ func _on_enemy_timer_timeout():
 
 
 func round_1_state():
-	kill_goal = 60
+	kill_goal = 10
 	if kill_counter == kill_goal:
 		enemytimer.stop()
 	if kill_counter >= kill_goal and get_tree().get_nodes_in_group("enemies").is_empty():

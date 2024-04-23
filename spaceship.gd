@@ -26,8 +26,6 @@ func _process(delta):
 func _physics_process(delta):
 	mouse_position = get_global_mouse_position()
 	
-	look_at(get_global_mouse_position())
-	
 	if position.distance_to(mouse_position) > 10:
 		if Input.is_action_pressed("forward"):
 			var direction = (mouse_position - position).normalized()
