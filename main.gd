@@ -11,7 +11,7 @@ var enemy = preload("res://enemyspaceship.tscn")
 var kill_counter = 0
 var kill_goal = 60
 var upgrade_allowed = false
-var per_round_credit_amount = 10
+
 
 enum {
 	ROUND_1,
@@ -85,11 +85,9 @@ func _on_enemy_death():
 func end_round():
 	kill_counter = 0
 	if state == ROUND_1:
-		per_round_credit_amount += 10
 		state = ROUND_2
 		enemytimer.start(0.8)
 	elif state == ROUND_2:
-		per_round_credit_amount += 10
 		state = ROUND_3
 		enemytimer.start(0.6)
 	elif state == ROUND_3:

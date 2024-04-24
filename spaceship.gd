@@ -4,8 +4,6 @@ extends CharacterBody2D
 
 var mouse_position = null
 var laser = preload("res://laser.tscn")
-@export var laser_speed = 1000
-@export var laser_damage = 1
 @onready var upgrades = get_node("/root/Upgrades")
 @onready var sprite = $Sprite2D
 var SPEED = 300
