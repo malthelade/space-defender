@@ -61,14 +61,14 @@ func round_1_state():
 		
 
 func round_2_state():
-	kill_goal = 80
+	kill_goal = 10
 	if kill_counter == kill_goal:
 		enemytimer.stop()
 	if kill_counter >= kill_goal and get_tree().get_nodes_in_group("enemies").is_empty():
 		upgrade_allowed = true
 	
 func round_3_state():
-	kill_goal = 100
+	kill_goal = 10
 	if kill_counter == kill_goal:
 		enemytimer.stop()
 	if kill_counter >= kill_goal and get_tree().get_nodes_in_group("enemies").is_empty():
