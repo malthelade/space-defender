@@ -16,4 +16,5 @@ func _on_timer_timeout():
 		gamestate.no_health()
 
 func _on_area_2d_body_exited(body):
-	gamestate.enemy_counter -= 1
+	if body.is_in_group('enemies'):
+		gamestate.enemy_counter -= 1
