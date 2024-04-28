@@ -77,10 +77,6 @@ func round_3_state():
 func _on_enemy_death():
 	kill_counter += 1
 	upgrades.credits += 1
-
-
-
-
 	
 func end_round():
 	kill_counter = 0
