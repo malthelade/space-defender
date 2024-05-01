@@ -30,20 +30,12 @@ Make your laser do even
 more damage"
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-
 func _on_ship_upgrade_1_pressed():
 	if upgrades.credits >= level1upgradeprice:
 		upgrades.credits -= level1upgradeprice
 		upgrades.ship_upgrade_1()
 		shipbutton1.disabled = true
 		shiptext1.text = "PURCHASED"
-
-
 
 func _on_ship_upgrade_2_pressed():
 	if upgrades.credits >= level2upgradeprice:
@@ -52,8 +44,6 @@ func _on_ship_upgrade_2_pressed():
 		shipbutton2.disabled = true
 		shiptext2.text = "PURCHASED"
 
-
-
 func _on_laser_upgrade_1_pressed():
 	if upgrades.credits >= level1upgradeprice:
 		upgrades.credits -= level1upgradeprice
@@ -61,17 +51,12 @@ func _on_laser_upgrade_1_pressed():
 		laserbutton1.disabled = true
 		lasertext1.text = "PURCHASED"
 
-
-
 func _on_laser_upgrade_2_pressed():
 	if upgrades.credits >= level2upgradeprice:
 		upgrades.credits -= level2upgradeprice
 		upgrades.laser_upgrade_2()
 		laserbutton2.disabled = true
 		lasertext2.text = "PURCHASED"
-
-
-
 
 func _on_close_button_pressed():
 	emit_signal("menu_closed")
